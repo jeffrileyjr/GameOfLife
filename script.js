@@ -1,5 +1,7 @@
 const columns = Math.round(Math.round(window.innerWidth) / 10);
 const rows = Math.round(Math.round(window.innerHeight) / 10);
+const btn = document.getElementById("mainBTN");
+const infoBox = document.getElementById('modal')
 let current = [rows];
 let nextGen = [rows];
 let speed = 500;
@@ -10,6 +12,10 @@ let interval;
 createGameboard();
 create2DArrays();
 randomizeCells();
+
+function showInfo() {
+    infoBox.classList.toggle("showModal")
+}
 
 function createGameboard() {
     const grid = document.getElementById("gameboard");
@@ -99,8 +105,16 @@ function updateBoard() {
 }
 
 function evolve() {
-    console.log(current)
-    setInterval(nextGeneration, speed);
+    gameStarted = !gameStarted;    
+    if (gameStarted) {
+        btn.innerText = 'Reset';
+        interval = setInterval(nextGeneration, speed);
+    } else {
+        btn.innerText = "Start";
+        clearInterval(interval);
+        create2DArrays();
+        randomizeCells();
+    }
 
 }
 
