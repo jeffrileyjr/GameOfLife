@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Conway's Game of Life</title>
+</head>
+<body>
+    <header class="header">
+        <!-- use flex to style, want buttons together so put title in div and buttons together in one div -->
+        <div class="title">Conway's Game of Life</div>
+        <div>
+          <!-- first button starts game, it will change to reset button dynmanically allowing to reset to another random layout -->
+          <button id="mainBTN" onclick="evolve()">Start</button>
+          <!-- info displays modal overlay with info on game and rules -->
+          <button onclick="showInfo()">Info</button>
+        </div>
+  
+      </header>
+
+      <div id="gameboard"></div>
+
+      <!-- below is the modal overlay that displays when info is clicked -->
+    <div id="modal" class="overlay">
+        <div>
+          About
+        </div> 
+       
+
+       <p>
+        The universe of the Game of Life is an infinite two-dimensional orthogonal grid of square cells, each of which is in one of two possible states, alive or dead, or "populated" or "unpopulated". Every cell interacts with its eight neighbours, which are the cells that are horizontally, vertically, or diagonally adjacent. At each step in time, the following transitions occur:
+
+       </p>
+       <ul>
+           <li>Any live cell with fewer than two live neighbours dies, as if caused by underpopulation.</li>
+           <li>Any live cell with two or three live neighbours lives on to the next generation.</li>
+           <li>Any live cell with more than three live neighbours dies, as if by overpopulation.</li>
+           <li>Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.</li>
+       </ul>
+       <p>
+        The initial pattern constitutes the seed of the system. The first generation is created by applying the above rules simultaneously to every cell in the seed—births and deaths occur simultaneously, and the discrete moment at which this happens is sometimes called a tick (in other words, each generation is a pure function of the preceding one). The rules continue to be applied repeatedly to create further generations.
+       </p>
+
+       <button onclick="showInfo()">Close</button>
+
+
+
+
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
